@@ -67,7 +67,7 @@ def main():
 
     img = Image.new(mode="RGB", size=(IMAGE_W, IMAGE_H), color=BG_COLOR)
     chaos_game(img, num_points=n, d=d, num_iter=num_iter)
-    #img.show()
+    img.show()
     img.save(f"generated/chaos_{n}p_{num_iter}iter.png")
 
 
