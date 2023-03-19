@@ -21,7 +21,7 @@ def midpoint(a, b, d=0.5):
     return mx, my
 
 
-def chaos_game(image, *, num_points=3, d=0.5, include_center=False):
+def chaos_game(image, *, num_points=3, d=0.5, num_iter=50000, include_center=False):
 
     center_p = (IMAGE_W // 2, IMAGE_H // 2)
     radius = int(min(center_p) * 0.8)
@@ -39,7 +39,7 @@ def chaos_game(image, *, num_points=3, d=0.5, include_center=False):
         image.putpixel(point, POINT_COLOR)
 
     p = (randint(0, IMAGE_W), randint(0, IMAGE_H))
-    for i in range(50000):
+    for i in range(num_iter):
         goal_p = choice(points)
         mid_p = midpoint(p, goal_p, d)
         image.putpixel(mid_p, POINT_COLOR)
@@ -63,10 +63,12 @@ def main():
     if n is the number of vertices of the fractal, then d should be 3 / (n + 3)
     '''
     d = 3 / (n + 3)
+    num_iter = 50000
 
     img = Image.new(mode="RGB", size=(IMAGE_W, IMAGE_H), color=BG_COLOR)
-    chaos_game(img, num_points=n, d=d, include_center=False)
+    chaos_game(img, num_points=n, d=d, num_iter=num_iter)
     img.show()
+    # img.save(f"generated/chaos_{n}p_{num_iter}iter.png")
 
 
 if __name__ == '__main__':
