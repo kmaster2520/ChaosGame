@@ -8,7 +8,7 @@ Code written by Sathvik Kadaveru
 3/19/2023
 '''
 
-IMAGE_W = 1200
+IMAGE_W = 800
 IMAGE_H = IMAGE_W
 
 BG_COLOR = (0, 0, 0)
@@ -67,8 +67,8 @@ def main():
 
     img = Image.new(mode="RGB", size=(IMAGE_W, IMAGE_H), color=BG_COLOR)
     chaos_game(img, num_points=n, d=d, num_iter=num_iter)
-    img.show()
-    # img.save(f"generated/chaos_{n}p_{num_iter}iter.png")
+    #img.show()
+    img.save(f"generated/chaos_{n}p_{num_iter}iter.png")
 
 
 if __name__ == '__main__':
