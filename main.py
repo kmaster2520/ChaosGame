@@ -45,7 +45,10 @@ def chaos_game(image, *, num_points=3, d=0.5, num_iter=50000, include_center=Fal
     d_theta = 2 * pi / num_points
     points = []
     for i in range(num_points):
-        theta = d_theta * i
+        if num_points % 2 == 0:
+            theta = d_theta * (i + 0.5)
+        else:
+            theta = d_theta * i
         px = center_p[0] + int(radius * sin(theta))
         py = center_p[1] - int(radius * cos(theta))
         points.append((px, py))
