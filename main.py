@@ -23,8 +23,8 @@ def midpoint(a, b, d=0.5):
     :param d: The proportion to travel from point a to b
     :return: The next point
     """
-    mx = int(d * a[0] + (1 - d) * b[0])
-    my = int(d * a[1] + (1 - d) * b[1])
+    mx = int((1 - d) * a[0] + d * b[0])
+    my = int((1 - d) * a[1] + d * b[1])
     return mx, my
 
 
@@ -80,11 +80,11 @@ def main():
 
     """
     d (from 0 to 1) is the jump from the current point to a chosen point.
-    if d is 1/2, then the next point is 1/2 from the current point to the chosen point
-    if n is the number of vertices of the fractal, then d should be 3 / (n + 3)
+    if d is 4/7, then the next point is 4/7 from the current point to the chosen point
+    if n is the number of vertices of the fractal, then d should be n / (n + 3)
     """
     n = args.n
-    d = 3 / (n + 3)
+    d = n / (n + 3)
     should_save_image = args.s
     num_iter = args.i
 
